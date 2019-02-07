@@ -15,7 +15,7 @@ import com.itau.solicitudes.services.SolicitudService;
 
 @CrossOrigin(origins = "http://localhost:4200")
 @RestController
-@RequestMapping("/solicitud")
+@RequestMapping("/solicitudes/solicitudes")
 public class SolicitudController {
 
 	@Autowired
