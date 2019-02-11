@@ -15,7 +15,7 @@ public class DatosFamiliares {
 
 	@Id 
 	@GeneratedValue(strategy=GenerationType.IDENTITY)
-	private long idDatosFamiliares;
+	private Long idDatosFamiliares;
 	private String parentesco;
 	private String nombre;
 	private String apellido;
@@ -122,11 +122,34 @@ public class DatosFamiliares {
 	public void setApellidoMadre(String apellidoMadre) {
 		this.apellidoMadre = apellidoMadre;
 	}
-	public long getIdDatosFamiliares() {
+	public Long getIdDatosFamiliares() {
 		return idDatosFamiliares;
 	}
-	public void setIdDatosFamiliares(long idDatosFamiliares) {
+	public void setIdDatosFamiliares(Long idDatosFamiliares) {
 		this.idDatosFamiliares = idDatosFamiliares;
 	}
-	
+	 
+    @Override
+    public boolean equals(Object o) {
+    	if (this == o) return true;
+        if (o == null || !(o instanceof DatosFamiliares))
+            return false;
+
+        DatosFamiliares other = (DatosFamiliares)o;
+
+        if (idDatosFamiliares == other.getIdDatosFamiliares()) return true;
+        if (idDatosFamiliares == null) return false;
+
+        // equivalence by id
+        return idDatosFamiliares.equals(other.getIdDatosFamiliares());
+    }
+ 
+    @Override
+    public int hashCode() {
+    	if (idDatosFamiliares != null) {
+            return idDatosFamiliares.hashCode();
+        } else {
+            return super.hashCode();
+        }
+    }
 }

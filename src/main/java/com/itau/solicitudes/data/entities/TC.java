@@ -120,5 +120,28 @@ public class TC {
 	public void setCodRelacionCombinatoriaTarjeta(String codRelacionCombinatoriaTarjeta) {
 		this.codRelacionCombinatoriaTarjeta = codRelacionCombinatoriaTarjeta;
 	}
-	
+	 
+    @Override
+    public boolean equals(Object o) {
+    	if (this == o) return true;
+        if (o == null || !(o instanceof TC))
+            return false;
+
+        TC other = (TC)o;
+
+        if (idTC == other.getIdTC()) return true;
+        if (idTC == null) return false;
+
+        // equivalence by id
+        return idTC.equals(other.getIdTC());
+    }
+ 
+    @Override
+    public int hashCode() {
+    	if (idTC != null) {
+            return idTC.hashCode();
+        } else {
+            return super.hashCode();
+        }
+    }
 }

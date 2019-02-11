@@ -127,5 +127,28 @@ public class OCRDocumentData {
 	public void setValorRiesgoPLD(String valorRiesgoPLD) {
 		this.valorRiesgoPLD = valorRiesgoPLD;
 	}
-	
+	 
+    @Override
+    public boolean equals(Object o) {
+    	if (this == o) return true;
+        if (o == null || !(o instanceof OCRDocumentData))
+            return false;
+
+        OCRDocumentData other = (OCRDocumentData)o;
+
+        if (idOCRDoc == other.getIdOCRDoc()) return true;
+        if (idOCRDoc == null) return false;
+
+        // equivalence by id
+        return idOCRDoc.equals(other.getIdOCRDoc());
+    }
+ 
+    @Override
+    public int hashCode() {
+    	if (idOCRDoc != null) {
+            return idOCRDoc.hashCode();
+        } else {
+            return super.hashCode();
+        }
+    }
 }

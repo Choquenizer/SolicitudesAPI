@@ -10,6 +10,7 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 @JsonIgnoreProperties(value = { "pep", "fatca", "referencia", "veraz", "direccion", "sujetoObligado", "datosImpositivos", "datosFamiliares", "datosLaborales", "ocrdocumentData" })
 public class Cliente {
 
+	private Long idCliente;
 	private long idSolicitud;
 	private String codigoConvenio;
 	private String esCuitCuil;
@@ -400,4 +401,11 @@ public class Cliente {
 	public void setOCRDocumentData(List<OCRDocumentData> oCRDocumentData) {
 		OCRDocumentData = oCRDocumentData;
 	}
+	public Long getIdCliente() {
+		return idCliente;
+	}
+	public void setIdCliente(Long idCliente) {
+		this.idCliente = idCliente;
+	}
+	
 }

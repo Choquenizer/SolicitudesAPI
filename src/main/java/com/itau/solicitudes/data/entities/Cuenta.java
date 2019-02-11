@@ -71,5 +71,28 @@ public class Cuenta {
 	public void setLimitCurrency(String limitCurrency) {
 		this.limitCurrency = limitCurrency;
 	}
-	
+	 
+    @Override
+    public boolean equals(Object o) {
+    	if (this == o) return true;
+        if (o == null || !(o instanceof Cuenta))
+            return false;
+
+        Cuenta other = (Cuenta)o;
+
+        if (idCuenta == other.getIdCuenta()) return true;
+        if (idCuenta == null) return false;
+
+        // equivalence by id
+        return idCuenta.equals(other.getIdCuenta());
+    }
+ 
+    @Override
+    public int hashCode() {
+    	if (getIdCuenta() != null) {
+            return getIdCuenta().hashCode();
+        } else {
+            return super.hashCode();
+        }
+    }
 }

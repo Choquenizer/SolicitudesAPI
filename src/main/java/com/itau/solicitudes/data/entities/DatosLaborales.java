@@ -15,7 +15,7 @@ public class DatosLaborales {
 
 	@Id 
 	@GeneratedValue(strategy=GenerationType.IDENTITY)
-	private long idDatosLaborales;
+	private Long idDatosLaborales;
 	private String actividadPrincipal;
 	private Boolean acreditaSueldo;
 	private String grupoPSI;
@@ -115,11 +115,34 @@ public class DatosLaborales {
 	public void setOrigenFondos(String origenFondos) {
 		this.origenFondos = origenFondos;
 	}
-	public long getIdDatosLaborales() {
+	public Long getIdDatosLaborales() {
 		return idDatosLaborales;
 	}
-	public void setIdDatosLaborales(long idDatosLaborales) {
+	public void setIdDatosLaborales(Long idDatosLaborales) {
 		this.idDatosLaborales = idDatosLaborales;
 	}
-	
+	 
+    @Override
+    public boolean equals(Object o) {
+    	if (this == o) return true;
+        if (o == null || !(o instanceof DatosLaborales))
+            return false;
+
+        DatosLaborales other = (DatosLaborales)o;
+
+        if (idDatosLaborales == other.getIdDatosLaborales()) return true;
+        if (idDatosLaborales == null) return false;
+
+        // equivalence by id
+        return idDatosLaborales.equals(other.getIdDatosLaborales());
+    }
+ 
+    @Override
+    public int hashCode() {
+    	if (idDatosLaborales != null) {
+            return idDatosLaborales.hashCode();
+        } else {
+            return super.hashCode();
+        }
+    }
 }

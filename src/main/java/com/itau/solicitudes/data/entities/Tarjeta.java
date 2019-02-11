@@ -49,5 +49,28 @@ public class Tarjeta {
 	public void setMontoTCTarj(BigDecimal montoTCTarj) {
 		this.montoTCTarj = montoTCTarj;
 	}
-	
+	 
+    @Override
+    public boolean equals(Object o) {
+    	if (this == o) return true;
+        if (o == null || !(o instanceof Tarjeta))
+            return false;
+
+        Tarjeta other = (Tarjeta)o;
+
+        if (idTarjeta == other.getIdTarjeta()) return true;
+        if (idTarjeta == null) return false;
+
+        // equivalence by id
+        return idTarjeta.equals(other.getIdTarjeta());
+    }
+ 
+    @Override
+    public int hashCode() {
+    	if (idTarjeta != null) {
+            return idTarjeta.hashCode();
+        } else {
+            return super.hashCode();
+        }
+    }
 }

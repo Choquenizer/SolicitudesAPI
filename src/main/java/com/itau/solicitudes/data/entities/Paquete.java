@@ -126,4 +126,28 @@ public class Paquete {
 	public void setCuenta(Set<Cuenta> cuenta) {
 		Cuenta = cuenta;
 	}
+	 
+    @Override
+    public boolean equals(Object o) {
+    	if (this == o) return true;
+        if (o == null || !(o instanceof Paquete))
+            return false;
+
+        Paquete other = (Paquete)o;
+
+        if (idPaquete == other.getIdPaquete()) return true;
+        if (idPaquete == null) return false;
+
+        // equivalence by id
+        return idPaquete.equals(other.getIdPaquete());
+    }
+ 
+    @Override
+    public int hashCode() {
+    	if (idPaquete != null) {
+            return idPaquete.hashCode();
+        } else {
+            return super.hashCode();
+        }
+    }
 }

@@ -156,4 +156,28 @@ public class AumentoLinea {
 	public void setTarjeta(Set<Tarjeta> tarjeta) {
 		Tarjeta = tarjeta;
 	}
+	 
+    @Override
+    public boolean equals(Object o) {
+    	if (this == o) return true;
+        if (o == null || !(o instanceof AumentoLinea))
+            return false;
+
+        AumentoLinea other = (AumentoLinea)o;
+
+        if (idAL == other.getIdAL()) return true;
+        if (idAL == null) return false;
+
+        // equivalence by id
+        return idAL.equals(other.getIdAL());
+    }
+ 
+    @Override
+    public int hashCode() {
+    	if (getIdAL() != null) {
+            return getIdAL().hashCode();
+        } else {
+            return super.hashCode();
+        }
+    }
 }

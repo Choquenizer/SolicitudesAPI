@@ -100,4 +100,28 @@ public class Veraz {
 	public void setMovistar(String movistar) {
 		this.movistar = movistar;
 	}
+	 
+    @Override
+    public boolean equals(Object o) {
+    	if (this == o) return true;
+        if (o == null || !(o instanceof Veraz))
+            return false;
+
+        Veraz other = (Veraz)o;
+
+        if (idVeraz == other.getIdVeraz()) return true;
+        if (idVeraz == null) return false;
+
+        // equivalence by id
+        return idVeraz.equals(other.getIdVeraz());
+    }
+ 
+    @Override
+    public int hashCode() {
+    	if (idVeraz != null) {
+            return idVeraz.hashCode();
+        } else {
+            return super.hashCode();
+        }
+    }
 }

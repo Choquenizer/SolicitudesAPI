@@ -106,5 +106,28 @@ public class FATCA {
 	public void setNumeroIdentificacionFiscal(String numeroIdentificacionFiscal) {
 		this.numeroIdentificacionFiscal = numeroIdentificacionFiscal;
 	}
-	
+	 
+    @Override
+    public boolean equals(Object o) {
+    	if (this == o) return true;
+        if (o == null || !(o instanceof FATCA))
+            return false;
+
+        FATCA other = (FATCA)o;
+
+        if (idFATCA == other.getIdFATCA()) return true;
+        if (idFATCA == null) return false;
+
+        // equivalence by id
+        return idFATCA.equals(other.getIdFATCA());
+    }
+ 
+    @Override
+    public int hashCode() {
+    	if (idFATCA != null) {
+            return idFATCA.hashCode();
+        } else {
+            return super.hashCode();
+        }
+    }
 }

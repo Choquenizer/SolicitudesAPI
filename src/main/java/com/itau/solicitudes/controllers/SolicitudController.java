@@ -1,5 +1,8 @@
 package com.itau.solicitudes.controllers;
 
+import java.util.HashMap;
+import java.util.Map;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.CrossOrigin;
@@ -23,18 +26,70 @@ public class SolicitudController {
 	
 	@RequestMapping(method = RequestMethod.POST)
 	@ResponseBody
-	public ResponseEntity<Solicitud> save(@RequestBody Solicitud solicitud) {
-		solicitud = this.solicitudService.saveOrUpdate(solicitud);
-		
-		return ResponseEntity.ok(solicitud);
+	public ResponseEntity<Object> save(@RequestBody Solicitud solicitud) {
+		try {
+			solicitud = this.solicitudService.save(solicitud);
+			
+			Map<String, Long> resp = new HashMap<String, Long>();
+			resp.put("idSolicitud", solicitud.getIdSolicitud());
+			
+			return ResponseEntity.ok(resp);
+		} catch (Exception e) {
+			return ResponseEntity.status(500).body(e);
+		}
+	}
+	
+	@RequestMapping(method = RequestMethod.PUT, value = "/{id}")
+	@ResponseBody
+	public ResponseEntity<Object> update(@RequestBody Solicitud solicitud, @PathVariable("id") Long id) {
+		try {
+			solicitud.setIdSolicitud(id);
+			solicitud = this.solicitudService.update(solicitud);
+			
+			return ResponseEntity.ok("");
+		} catch (Exception e) {
+			return ResponseEntity.status(500).body(e);
+		}
 	}
 	
 	@RequestMapping(method = RequestMethod.GET, value = "/{id}")
 	@ResponseBody
-	public ResponseEntity<Solicitud> findById(@PathVariable("id") Long id) {
-		Solicitud solicitud = this.solicitudService.findById(id);
-		
-		return ResponseEntity.ok(solicitud);
+	public ResponseEntity<Object> findById(@PathVariable("id") Long id) {
+		try {
+			Solicitud solicitud = this.solicitudService.findById(id);
+			
+			return ResponseEntity.ok(solicitud);
+		} catch (Exception e) {
+			return ResponseEntity.status(500).body(e);
+		}
+	}
+	
+	@RequestMapping(method = RequestMethod.GET, value = "/{id}/estado")
+	@ResponseBody
+	public ResponseEntity<Object> getEstadoById(@PathVariable("id") Long id) {
+		try {
+			String estado = this.solicitudService.getSolicitudEstado(id);
+			
+			Map<String, Object> resp = new HashMap<String, Object>();
+			resp.put("idSolicitud", id);
+			resp.put("estado", estado);
+			
+			return ResponseEntity.ok(resp);
+		} catch (Exception e) {
+			return ResponseEntity.status(500).body(e);
+		}
+	}
+	
+	@RequestMapping(method = RequestMethod.PUT, value = "/{id}/estado")
+	@ResponseBody
+	public ResponseEntity<Object> setEstadoById(@RequestBody Map<String, Object> body, @PathVariable("id") Long id) {
+		try {
+			this.solicitudService.setSolicitudEstado(id, (String) body.get("estado"));
+			
+			return ResponseEntity.ok("");
+		} catch (Exception e) {
+			return ResponseEntity.status(500).body(e);
+		}
 	}
 
 }

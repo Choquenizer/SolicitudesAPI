@@ -14,7 +14,7 @@ public class SujetoObligado {
 
 	@Id 
 	@GeneratedValue(strategy=GenerationType.IDENTITY)
-	private long idSujetoObligado;
+	private Long idSujetoObligado;
 	private Boolean esSujetoObligado;
 	private Date fechaInscripcion;
 	private Date fechaVencConstanciaUIF;
@@ -51,10 +51,34 @@ public class SujetoObligado {
 	public void setIndicadorInscripcionUIF(Boolean indicadorInscripcionUIF) {
 		this.indicadorInscripcionUIF = indicadorInscripcionUIF;
 	}
-	public long getIdSujetoObligado() {
+	public Long getIdSujetoObligado() {
 		return idSujetoObligado;
 	}
-	public void setIdSujetoObligado(long idSujetoObligado) {
+	public void setIdSujetoObligado(Long idSujetoObligado) {
 		this.idSujetoObligado = idSujetoObligado;
 	}
+	 
+    @Override
+    public boolean equals(Object o) {
+    	if (this == o) return true;
+        if (o == null || !(o instanceof SujetoObligado))
+            return false;
+
+        SujetoObligado other = (SujetoObligado)o;
+
+        if (idSujetoObligado == other.getIdSujetoObligado()) return true;
+        if (idSujetoObligado == null) return false;
+
+        // equivalence by id
+        return idSujetoObligado.equals(other.getIdSujetoObligado());
+    }
+ 
+    @Override
+    public int hashCode() {
+    	if (idSujetoObligado != null) {
+            return idSujetoObligado.hashCode();
+        } else {
+            return super.hashCode();
+        }
+    }
 }

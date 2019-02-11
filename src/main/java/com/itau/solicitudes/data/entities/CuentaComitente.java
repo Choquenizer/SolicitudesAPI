@@ -64,4 +64,28 @@ public class CuentaComitente {
 	public void setPatrimonio(BigDecimal patrimonio) {
 		this.patrimonio = patrimonio;
 	}
+	 
+    @Override
+    public boolean equals(Object o) {
+    	if (this == o) return true;
+        if (o == null || !(o instanceof CuentaComitente))
+            return false;
+
+        CuentaComitente other = (CuentaComitente)o;
+
+        if (idCC == other.getIdCC()) return true;
+        if (idCC == null) return false;
+
+        // equivalence by id
+        return idCC.equals(other.getIdCC());
+    }
+ 
+    @Override
+    public int hashCode() {
+    	if (idCC != null) {
+            return idCC.hashCode();
+        } else {
+            return super.hashCode();
+        }
+    }
 }

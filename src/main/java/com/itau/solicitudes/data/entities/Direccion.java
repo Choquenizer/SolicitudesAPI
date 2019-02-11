@@ -12,7 +12,7 @@ public class Direccion {
 
 	@Id 
 	@GeneratedValue(strategy=GenerationType.IDENTITY)
-	private long idDireccion;
+	private Long idDireccion;
 	private String tipoDireccion;
 	private String contactoTelCaracteristica;
 	private String contactoTelNumero;
@@ -140,11 +140,34 @@ public class Direccion {
 	public void setLocalidad(String localidad) {
 		this.localidad = localidad;
 	}
-	public long getIdDireccion() {
+	public Long getIdDireccion() {
 		return idDireccion;
 	}
-	public void setIdDireccion(long idDireccion) {
+	public void setIdDireccion(Long idDireccion) {
 		this.idDireccion = idDireccion;
 	}
-	
+	 
+    @Override
+    public boolean equals(Object o) {
+    	if (this == o) return true;
+        if (o == null || !(o instanceof Direccion))
+            return false;
+
+        Direccion other = (Direccion)o;
+
+        if (idDireccion == other.getIdDireccion()) return true;
+        if (idDireccion == null) return false;
+
+        // equivalence by id
+        return idDireccion.equals(other.getIdDireccion());
+    }
+ 
+    @Override
+    public int hashCode() {
+    	if (idDireccion != null) {
+            return idDireccion.hashCode();
+        } else {
+            return super.hashCode();
+        }
+    }
 }

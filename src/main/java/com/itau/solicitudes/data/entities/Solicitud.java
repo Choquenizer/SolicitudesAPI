@@ -21,7 +21,7 @@ public class Solicitud {
 
 	@Id 
 	@GeneratedValue(strategy=GenerationType.IDENTITY)
-	private long idSolicitud;
+	private Long idSolicitud;
 	private String tipoSolicitud;
 	private Integer idCanal;
 	private Integer idGestion;
@@ -64,10 +64,10 @@ public class Solicitud {
 	private Set<Cliente> cliente;
 	
 	
-	public long getIdSolicitud() {
+	public Long getIdSolicitud() {
 		return idSolicitud;
 	}
-	public void setIdSolicitud(long idSolicitud) {
+	public void setIdSolicitud(Long idSolicitud) {
 		this.idSolicitud = idSolicitud;
 	}
 	public String getTipoSolicitud() {
@@ -238,4 +238,28 @@ public class Solicitud {
 	public void setCliente(Set<Cliente> cliente) {
 		this.cliente = cliente;
 	}
+	 
+    @Override
+    public boolean equals(Object o) {
+    	if (this == o) return true;
+        if (o == null || !(o instanceof Solicitud))
+            return false;
+
+        Solicitud other = (Solicitud)o;
+
+        if (idSolicitud == other.getIdSolicitud()) return true;
+        if (idSolicitud == null) return false;
+
+        // equivalence by id
+        return idSolicitud.equals(other.getIdSolicitud());
+    }
+ 
+    @Override
+    public int hashCode() {
+    	if (idSolicitud != null) {
+            return idSolicitud.hashCode();
+        } else {
+            return super.hashCode();
+        }
+    }
 }

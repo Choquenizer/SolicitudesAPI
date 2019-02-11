@@ -12,7 +12,7 @@ public class Referencia {
 
 	@Id 
 	@GeneratedValue(strategy=GenerationType.IDENTITY)
-	private long idReferencia;
+	private Long idReferencia;
 	private String nombreRef;
 	private String apellidoRef;
 	private String telefonoRef;
@@ -35,11 +35,34 @@ public class Referencia {
 	public void setTelefonoRef(String telefonoRef) {
 		this.telefonoRef = telefonoRef;
 	}
-	public long getIdReferencia() {
+	public Long getIdReferencia() {
 		return idReferencia;
 	}
-	public void setIdReferencia(long idReferencia) {
+	public void setIdReferencia(Long idReferencia) {
 		this.idReferencia = idReferencia;
 	}
-	
+	 
+    @Override
+    public boolean equals(Object o) {
+    	if (this == o) return true;
+        if (o == null || !(o instanceof Referencia))
+            return false;
+
+        Referencia other = (Referencia)o;
+
+        if (idReferencia == other.getIdReferencia()) return true;
+        if (idReferencia == null) return false;
+
+        // equivalence by id
+        return idReferencia.equals(other.getIdReferencia());
+    }
+ 
+    @Override
+    public int hashCode() {
+    	if (idReferencia != null) {
+            return idReferencia.hashCode();
+        } else {
+            return super.hashCode();
+        }
+    }
 }

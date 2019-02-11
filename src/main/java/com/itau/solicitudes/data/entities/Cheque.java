@@ -41,5 +41,28 @@ public class Cheque {
 	public void setTipoEnvioChequera(String tipoEnvioChequera) {
 		this.tipoEnvioChequera = tipoEnvioChequera;
 	}
-	
+	 
+    @Override
+    public boolean equals(Object o) {
+    	if (this == o) return true;
+        if (o == null || !(o instanceof Cheque))
+            return false;
+
+        Cheque other = (Cheque)o;
+
+        if (idCheque == other.getIdCheque()) return true;
+        if (idCheque == null) return false;
+
+        // equivalence by id
+        return idCheque.equals(other.getIdCheque());
+    }
+ 
+    @Override
+    public int hashCode() {
+    	if (idCheque != null) {
+            return getIdCheque().hashCode();
+        } else {
+            return super.hashCode();
+        }
+    }
 }

@@ -12,7 +12,7 @@ public class PEP {
 
 	@Id 
 	@GeneratedValue(strategy=GenerationType.IDENTITY)
-	private long idPEP;
+	private Long idPEP;
 	private Boolean esPEP;
 	private String cargo;
 	private String funcion;
@@ -42,11 +42,34 @@ public class PEP {
 	public void setJerarquia(String jerarquia) {
 		this.jerarquia = jerarquia;
 	}
-	public long getIdPEP() {
+	public Long getIdPEP() {
 		return idPEP;
 	}
-	public void setIdPEP(long idPEP) {
+	public void setIdPEP(Long idPEP) {
 		this.idPEP = idPEP;
 	}
-	
+	 
+    @Override
+    public boolean equals(Object o) {
+    	if (this == o) return true;
+        if (o == null || !(o instanceof PEP))
+            return false;
+
+        PEP other = (PEP)o;
+
+        if (idPEP == other.getIdPEP()) return true;
+        if (idPEP == null) return false;
+
+        // equivalence by id
+        return idPEP.equals(other.getIdPEP());
+    }
+ 
+    @Override
+    public int hashCode() {
+    	if (idPEP != null) {
+            return idPEP.hashCode();
+        } else {
+            return super.hashCode();
+        }
+    }
 }

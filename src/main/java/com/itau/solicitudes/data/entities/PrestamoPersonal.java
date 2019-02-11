@@ -346,4 +346,28 @@ public class PrestamoPersonal {
 	public void setImporteMaxCuotaDisp(BigDecimal importeMaxCuotaDisp) {
 		this.importeMaxCuotaDisp = importeMaxCuotaDisp;
 	}
+	 
+    @Override
+    public boolean equals(Object o) {
+    	if (this == o) return true;
+        if (o == null || !(o instanceof PrestamoPersonal))
+            return false;
+
+        PrestamoPersonal other = (PrestamoPersonal)o;
+
+        if (idPP == other.getIdPP()) return true;
+        if (idPP == null) return false;
+
+        // equivalence by id
+        return idPP.equals(other.getIdPP());
+    }
+ 
+    @Override
+    public int hashCode() {
+    	if (idPP != null) {
+            return idPP.hashCode();
+        } else {
+            return super.hashCode();
+        }
+    }
 }

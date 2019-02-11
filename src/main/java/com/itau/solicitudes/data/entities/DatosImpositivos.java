@@ -12,7 +12,7 @@ public class DatosImpositivos {
 
 	@Id 
 	@GeneratedValue(strategy=GenerationType.IDENTITY)
-	private long idDatosImpositivos;
+	private Long idDatosImpositivos;
 	private String condicionesFrenteGanancias;
 	private String condicionFrenteIVA;
 	private String condicionIB;
@@ -49,10 +49,34 @@ public class DatosImpositivos {
 	public void setPracticaAjusteInflacion(String practicaAjusteInflacion) {
 		this.practicaAjusteInflacion = practicaAjusteInflacion;
 	}
-	public long getIdDatosImpositivos() {
+	public Long getIdDatosImpositivos() {
 		return idDatosImpositivos;
 	}
-	public void setIdDatosImpositivos(long idDatosImpositivos) {
+	public void setIdDatosImpositivos(Long idDatosImpositivos) {
 		this.idDatosImpositivos = idDatosImpositivos;
 	}
+	 
+    @Override
+    public boolean equals(Object o) {
+    	if (this == o) return true;
+        if (o == null || !(o instanceof DatosImpositivos))
+            return false;
+
+        DatosImpositivos other = (DatosImpositivos)o;
+
+        if (idDatosImpositivos == other.getIdDatosImpositivos()) return true;
+        if (idDatosImpositivos == null) return false;
+
+        // equivalence by id
+        return idDatosImpositivos.equals(other.getIdDatosImpositivos());
+    }
+ 
+    @Override
+    public int hashCode() {
+    	if (idDatosImpositivos != null) {
+            return idDatosImpositivos.hashCode();
+        } else {
+            return super.hashCode();
+        }
+    }
 }

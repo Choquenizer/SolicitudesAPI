@@ -33,5 +33,28 @@ public class TD {
 	public void setCodigoAplicacionProducto(String codigoAplicacionProducto) {
 		this.codigoAplicacionProducto = codigoAplicacionProducto;
 	}
-	
+	 
+    @Override
+    public boolean equals(Object o) {
+    	if (this == o) return true;
+        if (o == null || !(o instanceof TD))
+            return false;
+
+        TD other = (TD)o;
+
+        if (idTD == other.getIdTD()) return true;
+        if (idTD == null) return false;
+
+        // equivalence by id
+        return idTD.equals(other.getIdTD());
+    }
+ 
+    @Override
+    public int hashCode() {
+    	if (idTD != null) {
+            return idTD.hashCode();
+        } else {
+            return super.hashCode();
+        }
+    }
 }

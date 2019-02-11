@@ -21,7 +21,7 @@ public class Cliente {
 
 	@Id 
 	@GeneratedValue(strategy=GenerationType.IDENTITY)
-	private long idCliente;
+	private Long idCliente;
 	private String codigoConvenio;
 	private String esCuitCuil;
 	private Date inicioActividad;
@@ -97,10 +97,10 @@ public class Cliente {
 	private Set<OCRDocumentData> OCRDocumentData;
 	
 
-	public long getIdCliente() {
+	public Long getIdCliente() {
 		return idCliente;
 	}
-	public void setIdCliente(long idCliente) {
+	public void setIdCliente(Long idCliente) {
 		this.idCliente = idCliente;
 	}
 	public String getCodigoConvenio() {
@@ -421,4 +421,28 @@ public class Cliente {
 	public void setOCRDocumentData(Set<OCRDocumentData> oCRDocumentData) {
 		OCRDocumentData = oCRDocumentData;
 	}
+	 
+    @Override
+    public boolean equals(Object o) {
+    	if (this == o) return true;
+        if (o == null || !(o instanceof Cliente))
+            return false;
+
+        Cliente other = (Cliente)o;
+
+        if (idCliente == null) return false;
+        if (idCliente == other.getIdCliente()) return true;
+
+        // equivalence by id
+        return idCliente.equals(other.getIdCliente());
+    }
+ 
+    @Override
+    public int hashCode() {
+    	if (idCliente != null) {
+            return idCliente.hashCode();
+        } else {
+            return super.hashCode();
+        }
+    }
 }
