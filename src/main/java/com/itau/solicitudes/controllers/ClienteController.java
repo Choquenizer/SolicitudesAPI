@@ -15,13 +15,13 @@ import com.itau.solicitudes.services.ClienteService;
 
 @CrossOrigin(origins = "http://localhost:4200")
 @RestController
-@RequestMapping("/solicitudes")
+@RequestMapping("/solicitudes/solicitudes")
 public class ClienteController {
 
 	@Autowired
 	ClienteService clienteService;
 	
-	@RequestMapping(method = RequestMethod.PUT, value = "/{idSolicitud}/clientes/{idCliente}")
+	@RequestMapping(method = RequestMethod.PUT, value = "/{idSolicitud}/clientes/{idCliente}", produces = "application/json")
 	@ResponseBody
 	public ResponseEntity<Object> update(@RequestBody Cliente cliente, @PathVariable("idCliente") Long idCliente, @PathVariable("idSolicitud") Long idSolicitud) {
 		try {
@@ -34,7 +34,7 @@ public class ClienteController {
 		}
 	}
 	
-	@RequestMapping(method = RequestMethod.GET, value = "/{idSolicitud}/clientes/{idCliente}")
+	@RequestMapping(method = RequestMethod.GET, value = "/{idSolicitud}/clientes/{idCliente}", produces = "application/json")
 	@ResponseBody
 	public ResponseEntity<Object> findById(@PathVariable("idCliente") Long idCliente, @PathVariable("idSolicitud") Long idSolicitud) {
 		try {

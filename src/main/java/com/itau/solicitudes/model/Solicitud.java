@@ -12,7 +12,7 @@ public class Solicitud {
 
 	private long idSolicitud;
 	private String tipoSolicitud;
-	private Integer idCanal;
+	private String idCanal;
 	private Integer idGestion;
 	private String estado;
 	private Boolean esCliente;
@@ -58,10 +58,10 @@ public class Solicitud {
 	public void setTipoSolicitud(String tipoSolicitud) {
 		this.tipoSolicitud = tipoSolicitud;
 	}
-	public Integer getIdCanal() {
+	public String getIdCanal() {
 		return idCanal;
 	}
-	public void setIdCanal(Integer idCanal) {
+	public void setIdCanal(String idCanal) {
 		this.idCanal = idCanal;
 	}
 	public Integer getIdGestion() {
