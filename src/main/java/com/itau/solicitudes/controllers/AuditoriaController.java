@@ -15,7 +15,7 @@ import com.itau.solicitudes.services.AuditoriaService;
 
 @CrossOrigin(origins = "http://localhost:4200")
 @RestController
-@RequestMapping("/auditorias")
+@RequestMapping("/api/logs/v1/auditorias")
 public class AuditoriaController {
 
 	@Autowired

@@ -15,7 +15,7 @@ import com.itau.solicitudes.services.HistorialService;
 
 @CrossOrigin(origins = "http://localhost:4200")
 @RestController
-@RequestMapping("/historiales")
+@RequestMapping("/api/logs/v1/historiales")
 public class HistorialController {
 
 	@Autowired
