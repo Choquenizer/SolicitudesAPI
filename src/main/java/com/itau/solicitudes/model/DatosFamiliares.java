@@ -3,6 +3,10 @@ package com.itau.solicitudes.model;
 import java.math.BigDecimal;
 import java.util.Date;
 
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+import com.fasterxml.jackson.annotation.JsonProperty;
+
+@JsonIgnoreProperties(value = { "veraz" })
 public class DatosFamiliares {
 
 	private String parentesco;
@@ -20,6 +24,8 @@ public class DatosFamiliares {
 	private String apellidoPadre;
 	private String nombreMadre;
 	private String apellidoMadre;
+	@JsonProperty("Veraz")
+	private Veraz Veraz;
 	
 	public String getParentesco() {
 		return parentesco;
@@ -110,6 +116,12 @@ public class DatosFamiliares {
 	}
 	public void setApellidoMadre(String apellidoMadre) {
 		this.apellidoMadre = apellidoMadre;
+	}
+	public Veraz getVeraz() {
+		return Veraz;
+	}
+	public void setVeraz(Veraz veraz) {
+		Veraz = veraz;
 	}
 	
 }

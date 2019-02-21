@@ -45,6 +45,7 @@ public class Solicitud {
 	private BigDecimal cuotaPrestamo;
 	private BigDecimal lineaTotal;
 	private BigDecimal compromisoMaximo;
+	private String alzada;
 	
 	@OneToOne(cascade = CascadeType.ALL)
 	@JoinColumn(name="prestamoPersonalId")
@@ -238,8 +239,14 @@ public class Solicitud {
 	public void setCliente(Set<Cliente> cliente) {
 		this.cliente = cliente;
 	}
-	 
-    @Override
+    public String getAlzada() {
+		return alzada;
+	}
+	public void setAlzada(String alzada) {
+		this.alzada = alzada;
+	}
+	
+	@Override
     public boolean equals(Object o) {
     	if (this == o) return true;
         if (o == null || !(o instanceof Solicitud))

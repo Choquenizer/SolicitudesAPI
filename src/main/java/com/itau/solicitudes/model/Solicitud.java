@@ -34,6 +34,8 @@ public class Solicitud {
 	private BigDecimal cuotaPrestamo;
 	private BigDecimal lineaTotal;
 	private BigDecimal compromisoMaximo;
+	private String alzada;
+	
 	@JsonProperty("PrestamoPersonal")
 	private PrestamoPersonal prestamoPersonal;
 	@JsonProperty("CuentaComitente")
@@ -220,4 +222,11 @@ public class Solicitud {
 	public void setCliente(List<Cliente> cliente) {
 		this.cliente = cliente;
 	}
+	public String getAlzada() {
+		return alzada;
+	}
+	public void setAlzada(String alzada) {
+		this.alzada = alzada;
+	}
+	
 }

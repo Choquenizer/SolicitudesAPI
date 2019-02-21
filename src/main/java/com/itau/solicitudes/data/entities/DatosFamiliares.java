@@ -7,6 +7,7 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
 import javax.persistence.Table;
 
 @Entity
@@ -31,6 +32,8 @@ public class DatosFamiliares {
 	private String apellidoPadre;
 	private String nombreMadre;
 	private String apellidoMadre;
+	@JoinColumn(name="verazId")
+	private Veraz Veraz;
 	
 	public String getParentesco() {
 		return parentesco;
@@ -128,8 +131,14 @@ public class DatosFamiliares {
 	public void setIdDatosFamiliares(Long idDatosFamiliares) {
 		this.idDatosFamiliares = idDatosFamiliares;
 	}
-	 
-    @Override
+    public Veraz getVeraz() {
+		return Veraz;
+	}
+	public void setVeraz(Veraz veraz) {
+		Veraz = veraz;
+	}
+	
+	@Override
     public boolean equals(Object o) {
     	if (this == o) return true;
         if (o == null || !(o instanceof DatosFamiliares))

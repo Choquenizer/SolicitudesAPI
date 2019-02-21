@@ -27,13 +27,13 @@ public class Cliente {
 	private String nivelRamo3;
 	private String relacionDependencia;
 	private String tipoPersona;
-	private Integer cliNum;
+	private String cliNum;
 	private String raiz;
 	private String nombre;
 	private String segundoNombre;
 	private String apellido;
 	private Date fechaNacimiento;
-	private BigDecimal cuil;
+	private String cuil;
 	private String sexo;
 	private Boolean titular;
 	private String paisNacimiento;
@@ -55,6 +55,14 @@ public class Cliente {
 	private Integer listaInformadosPorcentaje;
 	private Boolean esAdicional;
 	private Boolean poseeResidenciaDistintaArgentina;
+	
+	private String perfilCliente;
+	private String comportamientoCliente;
+	private String tipoCliente;
+	private String tipoRenta;
+	private BigDecimal renta;
+	private Date antiguedadCliente;
+	
 	@JsonProperty("PEP")
 	private PEP PEP;
 	@JsonProperty("FATCA")
@@ -173,10 +181,10 @@ public class Cliente {
 	public void setTipoPersona(String tipoPersona) {
 		this.tipoPersona = tipoPersona;
 	}
-	public Integer getCliNum() {
+	public String getCliNum() {
 		return cliNum;
 	}
-	public void setCliNum(Integer cliNum) {
+	public void setCliNum(String cliNum) {
 		this.cliNum = cliNum;
 	}
 	public String getRaiz() {
@@ -209,10 +217,10 @@ public class Cliente {
 	public void setFechaNacimiento(Date fechaNacimiento) {
 		this.fechaNacimiento = fechaNacimiento;
 	}
-	public BigDecimal getCuil() {
+	public String getCuil() {
 		return cuil;
 	}
-	public void setCuil(BigDecimal cuil) {
+	public void setCuil(String cuil) {
 		this.cuil = cuil;
 	}
 	public String getSexo() {
@@ -406,6 +414,42 @@ public class Cliente {
 	}
 	public void setIdCliente(Long idCliente) {
 		this.idCliente = idCliente;
+	}
+	public String getPerfilCliente() {
+		return perfilCliente;
+	}
+	public void setPerfilCliente(String perfilCliente) {
+		this.perfilCliente = perfilCliente;
+	}
+	public String getComportamientoCliente() {
+		return comportamientoCliente;
+	}
+	public void setComportamientoCliente(String comportamientoCliente) {
+		this.comportamientoCliente = comportamientoCliente;
+	}
+	public String getTipoCliente() {
+		return tipoCliente;
+	}
+	public void setTipoCliente(String tipoCliente) {
+		this.tipoCliente = tipoCliente;
+	}
+	public String getTipoRenta() {
+		return tipoRenta;
+	}
+	public void setTipoRenta(String tipoRenta) {
+		this.tipoRenta = tipoRenta;
+	}
+	public BigDecimal getRenta() {
+		return renta;
+	}
+	public void setRenta(BigDecimal renta) {
+		this.renta = renta;
+	}
+	public Date getAntiguedadCliente() {
+		return antiguedadCliente;
+	}
+	public void setAntiguedadCliente(Date antiguedadCliente) {
+		this.antiguedadCliente = antiguedadCliente;
 	}
 	
 }
